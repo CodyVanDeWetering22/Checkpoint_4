@@ -36,9 +36,9 @@ class TodoService {
     }
 
     async checkedBox(todoId) {
-        const todoIndex = AppState.myTodos.findIndex(todo => todo.id == todoId)
+        const todoIndex = AppState.todos.findIndex(todo => todo.id == todoId)
 
-        const foundTodo = AppState.myTodos[todoIndex]
+        const foundTodo = AppState.todos[todoIndex]
 
 
 
@@ -51,11 +51,11 @@ class TodoService {
 
 
 
-        const res = await api.put(`api/todos/${todoId}`, todoIndex)
+        const res = await api.put(`api/todos/${todoId}`, todoData)
         console.log('updated', res.data);
-        const newBox = new Todo(res.data)
+        const newTodo = new Todo(res.data)
 
-        AppState.todos.splice(todoIndex, 1, newBox)
+        AppState.todos.splice(todoIndex, 1, newTodo)
         AppState.emit('todos')
 
     }

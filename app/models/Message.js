@@ -4,9 +4,15 @@ export class Quote {
         this.author = this.author
     }
 
+
+    get messageTemplate() {
+        return ` <div class="col-8 fs-3 m-3">
+    <p>${this.content}</p>
+    <div class=""> 
+    <p>${this.author}</p>
+    </div>`
+    }
 }
-
-
 
 
 const data = [{

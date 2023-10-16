@@ -18,17 +18,12 @@ class ObservableAppState extends EventEmitter {
   /** @type {Todo[]} */
   todos = []
 
-
-
-  /** @type {Todo[]} */
-  myTodos = []
-
   /** @type {import('./models/Image.js').Image | null} */
   image = null
 
 
 
-  /** @type {import('./models/Image.js').Image | null} */
+  /** @type {import('./models/Message.js').Quote | null} */
   quote = null
 
 

@@ -14,10 +14,11 @@ function _drawTodos() {
     todos.forEach(todo => content += todo.todoCardTemplate)
     console.log(todos.length);
 
-    const completedBox = todos.filter(todo => todo.completed)
+    const completedBox = todos.filter(todo => todo.completed == false)
+    setHTML('count', `${completedBox.length}`)
 
     setHTML('todo', content)
-    setHTML('count', todos.length)
+
 
 
 }
@@ -87,6 +88,7 @@ export class TodoController {
 
     async checkedBox(todoId) {
         try {
+
             console.log('changed', todoId);
             await todoService.checkedBox(todoId)
         } catch (error) {
